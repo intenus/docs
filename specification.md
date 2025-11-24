@@ -3,7 +3,7 @@
 
 | Key                                   | Value                                                                 |
 |----------------------------------------|-----------------------------------------------------------------------|
-| **AI Enclave Host**                    | <http://13.211.142.216:8000/docs>                                      |
+| **AI Enclave Host**                    | <http://13.211.142.216:800dddd0/docs>                                      |
 | **INTENUS_PACKAGE_ID**                 | `0x993c7635b44582e9c47c589c759239d3e1ce787811af5bfa0056aa253caa394a`   |
 | **INTENUS_SOLVER_REGISTRY_ID**         | `0xf71c16414b66054dfe9ebca5f22f8076a8294715d5a3e4ae4b2b4e0cd5d7e64a`   |
 | **INTENUS_SOLVER_REGISTRY_ADMIN_CAP**  | `0xaf69f4d0fa49c43bfa9bfe382467eacd33ead8e2bb36aeb6fcb8f1df36d60909`   |
