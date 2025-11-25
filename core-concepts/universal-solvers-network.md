@@ -182,15 +182,24 @@ Solvers can contest penalties:
 
 ### For Users
 
-✅ **Best Execution**: Competition ensures optimal outcomes ✅ **Coverage**: Support for all DeFi operations ✅ **Innovation**: Continuous solver strategy improvements ✅ **Reliability**: Economic stakes align incentives
+* **Best Execution**: Competition ensures optimal outcomes
+* **Coverage**: Support for all DeFi operations
+* **Innovation**: Continuous solver strategy improvements
+* **Reliability**: Economic stakes align incentives
 
 ### For Solvers
 
-✅ **Open Market**: Permissionless participation ✅ **Fair Competition**: Verifiable, unbiased ranking ✅ **Portable Reputation**: Performance history follows solver ✅ **Diverse Revenue**: Multiple intent types = more opportunities
+* **Open Market**: Permissionless participation
+* **Fair Competition**: Verifiable, unbiased ranking
+* **Portable Reputation**: Performance history follows solver
+* **Diverse Revenue**: Multiple intent types = more opportunities
 
 ### For The Ecosystem
 
-✅ **Composability**: New protocols automatically integrated ✅ **Efficiency**: Reduced liquidity fragmentation ✅ **Security**: Distributed trust model ✅ **Innovation**: Open experimentation with strategies
+* **Composability**: New protocols automatically integrated
+* **Efficiency**: Reduced liquidity fragmentation
+* **Security**: Distributed trust model
+* **Innovation**: Open experimentation with strategies
 
 ## Solver Infrastructure
 
