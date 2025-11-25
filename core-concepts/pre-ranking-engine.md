@@ -11,6 +11,8 @@ The **Prerank Engine** is the first validation layer in the Intenus intent-based
 The Prerank Engine runs inside a verifiable enclave (Trusted Execution Environment – TEE), ensuring that all pre-ranking operations are transparent, secure, and fully attestable within a trusted environment. It serves as one of the two _**orchestrartor**_ of the [universal-solvers-network.md](universal-solvers-network.md "mention")
 {% endhint %}
 
+**Read more** [ranking-strategies.md](ranking-strategies.md "mention")
+
 ### **The Challenge It Solves**
 
 * High computational costs (AI ranking is expensive)
