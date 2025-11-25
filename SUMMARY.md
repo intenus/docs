@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-* [What is Intenus?](getting-started/what-is-intenus.md)
+* [Overview](getting-started/what-is-intenus.md)
 * [Quick Start](getting-started/quick-start.md)
 
 ## For Traders
@@ -23,9 +23,10 @@
   * [IGS Solutions](core-concepts/intenus-general-standard/igs-solutions.md)
   * [IGS Dataset](core-concepts/intenus-general-standard/igs-dataset.md)
   * [IGS Core](core-concepts/intenus-general-standard/igs-core.md)
-* [Pre-ranking Engine](core-concepts/pre-ranking-engine.md)
+* [Prerank Engine](core-concepts/pre-ranking-engine.md)
 * [Ranking Engine](core-concepts/ranking-engine.md)
 * [Universal Solvers Network](core-concepts/universal-solvers-network.md)
+* [Ranking Strategies](core-concepts/ranking-strategies.md)
 
 ## Technical Documentation
 

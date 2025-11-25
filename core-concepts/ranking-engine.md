@@ -1,12 +1,17 @@
 ---
+description: What is Ranking Engine?
 icon: medal
 ---
 
 # Ranking Engine
 
-## The Brain of Intenus
+## The Core Orchestrator of Intenus
 
 The **Ranking Engine** is Intenus's AI-powered system that evaluates competing solver solutions and selects the optimal one for execution. Unlike simple price comparisons, it performs sophisticated multi-dimensional analysis within a secure Trusted Execution Environment (TEE).
+
+{% hint style="info" %}
+It serves as one of the two _**orchestrartor**_ of the [universal-solvers-network.md](universal-solvers-network.md "mention")
+{% endhint %}
 
 ## Why AI-Powered Ranking?
 
@@ -204,31 +209,14 @@ High-risk solutions require higher expected value to win.
 
 Ranking occurs in Nautilus Trusted Execution Environment:
 
-**Security Properties**: ✅ **Isolation**: Code runs in secure enclave ✅ **Attestation**: Cryptographic proof of correct execution ✅ **Confidentiality**: Solution details remain private ✅ **Integrity**: Results cannot be tampered with
+**Security Properties**:
 
-### Proof Generation
-
-Each ranking produces:
-
-```json
-{
-  "ranking_id": "rank_abc123",
-  "tee_attestation": "0x...",
-  "winner_solution": "sol_xyz789",
-  "scores": {
-    "sol_xyz789": 9.2,
-    "sol_def456": 8.7,
-    "sol_ghi789": 8.1
-  },
-  "timestamp": 1699123456000
-}
-```
-
-Users and solvers can verify:
-
-* Computation occurred in genuine TEE
-* Ranking followed documented strategy
-* Winner was correctly selected
+| Properties          | Ddescription                             |
+| ------------------- | ---------------------------------------- |
+| **Isolation**       | Code runs in secure enclave              |
+| **Attestation**     | Cryptographic proof of correct execution |
+| **Confidentiality** | Solution details remain private          |
+| **Integrity**       | Results cannot be tampered with          |
 
 ## Continuous Learning
 
