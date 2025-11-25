@@ -13,7 +13,7 @@ Every intent execution generates valuable training data:
 * **Solver Evaluation**: Track historical performance patterns
 * **Market Analysis**: Understand liquidity and pricing dynamics
 
-## Solution Schema Reference
+## Dataset Schema Reference
 
 ### Schema Overview
 
