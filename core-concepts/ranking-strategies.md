@@ -2,6 +2,7 @@
 description: >-
   Explore how the Ranking Engine is able to produce precise and accurate scoring
   results.
+icon: chess-board
 ---
 
 # Ranking Strategies
