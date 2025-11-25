@@ -105,7 +105,7 @@ The highest-scoring solution wins:
 
 ## Ranking Strategies
 
-Read more about Ranking Strategies [Ranking Strategies](ranking-strategies.md)
+Read more about Ranking Strategies [Ranking Strategies](ranking-strategies.md) /li
 
 Different intent types use specialized strategies:
 
