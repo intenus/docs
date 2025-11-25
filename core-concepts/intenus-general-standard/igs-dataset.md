@@ -7,129 +7,200 @@
 ## Dataset Purpose
 
 Every intent execution generates valuable training data:
-- **Intent Classification**: Teach AI to categorize new intents
-- **Ranking Optimization**: Learn which solutions perform best
-- **Solver Evaluation**: Track historical performance patterns
-- **Market Analysis**: Understand liquidity and pricing dynamics
 
-## Dataset Structure
+* **Intent Classification**: Teach AI to categorize new intents
+* **Ranking Optimization**: Learn which solutions perform best
+* **Solver Evaluation**: Track historical performance patterns
+* **Market Analysis**: Understand liquidity and pricing dynamics
 
-```json
-{
-  "dataset_version": "1.0.0",
-  "entry_id": "ds_abc123",
-  "timestamp": 1699123456000,
-  "entry_type": "execution_complete",
+## Solution Schema Reference
 
-  "intent": {
-    // Complete intent specification (from IGS Intents)
-    "intent_id": "int_xyz789",
-    "intent_type": "swap.exact_input",
-    // ... full intent data
-  },
+### Schema Overview
 
-  "solutions_submitted": [
-    {
-      // Each solution proposal (from IGS Solutions)
-      "solution_id": "sol_abc123",
-      "solver_address": "0x...",
-      "expected_output": "2495000",
-      // ... full solution data
-    },
-    // ... more solutions
-  ],
+| Definition                         | Description                                           |
+| ---------------------------------- | ----------------------------------------------------- |
+| `RawFeatures`                      | Raw features extracted from IGSIntent for ML training |
+| `GroundTruthLabel`                 | Ground truth classification labels                    |
+| `LabelingMetadata`                 | Labeling metadata                                     |
+| `ExecutionOutcome`                 | Execution outcome for feedback loop                   |
+| `IntentClassificationTrainingData` | Complete training sample for intent classification    |
 
-  "ranking_results": {
-    "winner_id": "sol_abc123",
-    "scores": {
-      "sol_abc123": 9.2,
-      "sol_def456": 8.7,
-      "sol_ghi789": 8.1
-    },
-    "ranking_strategy": "swap_optimization_v1",
-    "tee_attestation": "0x..."
-  },
+### RawFeatures
 
-  "execution_outcome": {
-    "success": true,
-    "actual_output": "2492000",
-    "gas_used": "525000",
-    "execution_time_ms": 4800,
-    "tx_hash": "0x...",
-    "block_number": 12345678
-  },
+| Property                    | Type      | Description                       |
+| --------------------------- | --------- | --------------------------------- |
+| `solver_window_ms`          | `number`  | Solver access window duration     |
+| `user_decision_timeout_ms`  | `number`  | User decision timeout             |
+| `time_to_deadline_ms`       | `number`  | Time until deadline               |
+| `time_in_force`             | `string`  | Time in force policy              |
+| `max_slippage_bps`          | `number`  | Maximum slippage in basis points  |
+| `max_gas_cost_usd`          | `number`  | Maximum gas cost in USD           |
+| `max_hops`                  | `number`  | Maximum routing hops              |
+| `has_whitelist`             | `boolean` | Has protocol whitelist            |
+| `has_blacklist`             | `boolean` | Has protocol blacklist            |
+| `has_limit_price`           | `boolean` | Has limit price condition         |
+| `optimization_goal`         | `string`  | Primary optimization goal         |
+| `surplus_weight`            | `number`  | Surplus weight (0-100)            |
+| `gas_cost_weight`           | `number`  | Gas cost weight (0-100)           |
+| `execution_speed_weight`    | `number`  | Execution speed weight (0-100)    |
+| `reputation_weight`         | `number`  | Reputation weight (0-100)         |
+| `require_simulation`        | `boolean` | Requires simulation               |
+| `input_count`               | `number`  | Number of input assets            |
+| `output_count`              | `number`  | Number of output assets           |
+| `input_asset_types`         | `array`   | Input asset type classifications  |
+| `output_asset_types`        | `array`   | Output asset type classifications |
+| `input_value_usd`           | `number`  | Input value in USD                |
+| `expected_output_value_usd` | `number`  | Expected output value in USD      |
+| `benchmark_source`          | `string`  | Benchmark data source             |
+| `benchmark_confidence`      | `number`  | Benchmark confidence (0-1)        |
+| `expected_gas_usd`          | `number`  | Expected gas cost in USD          |
+| `expected_slippage_bps`     | `number`  | Expected slippage in basis points |
+| `has_nlp_input`             | `boolean` | Has natural language input        |
+| `nlp_confidence`            | `number`  | NLP parsing confidence (0-1)      |
+| `client_platform`           | `string`  | Client platform identifier        |
+| `tag_count`                 | `number`  | Number of tags                    |
 
-  "market_context": {
-    "sui_price_usdc": "2.48",
-    "network_gas_price": "1000",
-    "cetus_tvl": "50000000",
-    "turbos_tvl": "30000000"
-  },
+#### Time in Force Values
 
-  "privacy_metadata": {
-    "anonymized": true,
-    "sensitive_fields_hashed": ["user_address"],
-    "retention_period_days": 730
-  }
-}
-```
+| Value             | Description         |
+| ----------------- | ------------------- |
+| `immediate`       | Immediate execution |
+| `good_til_cancel` | Good until canceled |
+| `fill_or_kill`    | Fill or kill order  |
 
-## Data Categories
+#### Optimization Goal Values
 
-### Training Data
+| Value               | Description             |
+| ------------------- | ----------------------- |
+| `maximize_output`   | Maximize output amount  |
+| `minimize_gas`      | Minimize gas costs      |
+| `fastest_execution` | Fastest execution speed |
+| `balanced`          | Balanced optimization   |
 
-Used for model retraining:
-- Intent patterns and classifications
-- Solution quality indicators
-- Market condition correlations
-- Solver performance trends
+#### Asset Type Values
 
-### Audit Data
+| Value      | Description             |
+| ---------- | ----------------------- |
+| `native`   | Native blockchain token |
+| `stable`   | Stablecoin              |
+| `volatile` | Volatile cryptocurrency |
 
-Used for verification:
-- Ranking decisions and rationale
-- TEE attestations
-- Execution confirmations
-- Dispute evidence
+### GroundTruthLabel
 
-### Analytics Data
+| Property            | Type     | Description             |
+| ------------------- | -------- | ----------------------- |
+| `primary_category`  | `string` | Primary intent category |
+| `detected_priority` | `string` | Detected user priority  |
+| `complexity_level`  | `string` | Intent complexity level |
+| `risk_level`        | `string` | Associated risk level   |
 
-Used for insights:
-- Protocol usage statistics
-- Solver competition dynamics
-- User behavior patterns
-- Market efficiency metrics
+#### Primary Category Values
 
-## Privacy Preservation
+| Value          | Description           |
+| -------------- | --------------------- |
+| `swap`         | Token swap operation  |
+| `limit_order`  | Limit order execution |
+| `complex_defi` | Complex DeFi strategy |
+| `arbitrage`    | Arbitrage opportunity |
+| `other`        | Other intent type     |
 
-### Anonymization
+#### Detected Priority Values
 
-Before archiving:
-- **User addresses**: Hashed with salt
-- **Transaction amounts**: Optionally rounded
-- **Specific strategies**: Generalized categories
-- **Sensitive metadata**: Stripped or encrypted
+| Value      | Description       |
+| ---------- | ----------------- |
+| `speed`    | Speed-focused     |
+| `cost`     | Cost-focused      |
+| `output`   | Output-focused    |
+| `balanced` | Balanced priority |
 
-### Access Control
+#### Complexity Level Values
 
-Dataset access is tiered:
+| Value      | Description         |
+| ---------- | ------------------- |
+| `simple`   | Simple operation    |
+| `moderate` | Moderate complexity |
+| `complex`  | High complexity     |
 
-| Level | Access | Use Case |
-|-------|--------|----------|
-| Public | Aggregated statistics | Research, dashboards |
-| Researcher | Anonymized full data | Model training |
-| Auditor | Full data with restrictions | Dispute resolution |
-| Governance | Complete access | Protocol decisions |
+#### Risk Level Values
+
+| Value    | Description |
+| -------- | ----------- |
+| `low`    | Low risk    |
+| `medium` | Medium risk |
+| `high`   | High risk   |
+
+### LabelingMetadata
+
+| Property           | Type     | Description                   |
+| ------------------ | -------- | ----------------------------- |
+| `labeling_method`  | `string` | Method used for labeling      |
+| `labeled_by`       | `string` | Entity that created the label |
+| `labeled_at`       | `number` | Labeling timestamp            |
+| `label_confidence` | `number` | Label confidence (0-1)        |
+| `notes`            | `string` | Additional labeling notes     |
+
+#### Labeling Method Values
+
+| Value           | Description                   |
+| --------------- | ----------------------------- |
+| `expert_manual` | Manual expert labeling        |
+| `rule_based`    | Rule-based automatic labeling |
+| `outcome_based` | Based on execution outcomes   |
+| `user_feedback` | User feedback labeling        |
+| `synthetic`     | Synthetically generated       |
+
+### ExecutionOutcome
+
+| Property               | Type      | Description                   |
+| ---------------------- | --------- | ----------------------------- |
+| `executed`             | `boolean` | Whether intent was executed   |
+| `chosen_solution_rank` | `number`  | Rank of chosen solution       |
+| `chosen_solution_id`   | `string`  | ID of chosen solution         |
+| `actual_metrics`       | `object`  | Actual execution metrics      |
+| `user_satisfaction`    | `number`  | User satisfaction score (1-5) |
+| `executed_at`          | `number`  | Execution timestamp           |
+
+#### Actual Metrics Object
+
+| Property                   | Type     | Description                           |
+| -------------------------- | -------- | ------------------------------------- |
+| `actual_output_usd`        | `number` | Actual output value in USD            |
+| `actual_gas_cost_usd`      | `number` | Actual gas cost in USD                |
+| `actual_execution_time_ms` | `number` | Actual execution time in milliseconds |
+| `actual_slippage_bps`      | `number` | Actual slippage in basis points       |
+
+### IntentClassificationTrainingData
+
+| Property            | Type               | Description                   |
+| ------------------- | ------------------ | ----------------------------- |
+| `sample_id`         | `string`           | Unique sample identifier      |
+| `intent_metadata`   | `object`           | Intent metadata object        |
+| `raw_features`      | `RawFeatures`      | Raw feature data              |
+| `ground_truth`      | `GroundTruthLabel` | Ground truth labels           |
+| `label_info`        | `LabelingMetadata` | Labeling metadata             |
+| `execution_outcome` | `ExecutionOutcome` | Execution outcome data        |
+| `dataset_version`   | `string`           | Dataset version identifier    |
+| `created_at`        | `number`           | Sample creation timestamp     |
+| `full_intent_ref`   | `string`           | Reference to full intent data |
+
+#### Intent Metadata Object
+
+| Property      | Type     | Description                |
+| ------------- | -------- | -------------------------- |
+| `intent_id`   | `string` | Intent identifier          |
+| `intent_type` | `string` | Intent type classification |
+| `created_at`  | `number` | Intent creation timestamp  |
 
 ## Data Storage
 
 ### Walrus Integration
 
 All dataset entries stored on Walrus:
-- **Cost Efficiency**: Cheap decentralized storage
-- **Availability**: Distributed redundancy
-- **Integrity**: Cryptographic verification
-- **Permanence**: Long-term archival
+
+* **Cost Efficiency**: Cheap decentralized storage
+* **Availability**: Distributed redundancy
+* **Integrity**: Cryptographic verification
+* **Permanence**: Long-term archival
 
 ### Storage Format
 
@@ -156,90 +227,31 @@ Blob contains:
 ### Reinforcement Learning
 
 **Positive Examples**:
-- Solutions that outperformed estimates
-- High user satisfaction indicators
-- Novel successful strategies
+
+* Solutions that outperformed estimates
+* High user satisfaction indicators
+* Novel successful strategies
 
 **Negative Examples**:
-- Solutions that underperformed
-- Failed executions
-- User complaints or reverts
 
-## Data Quality
-
-### Validation Checks
-
-Before archiving:
-- ✅ Schema compliance
-- ✅ Completeness (all required fields)
-- ✅ Consistency (intent-solution-outcome match)
-- ✅ Integrity (cryptographic verification)
-
-### Quality Metrics
-
-Tracked per dataset entry:
-- **Completeness Score**: Percentage of fields populated
-- **Accuracy Score**: Match between estimates and actuals
-- **Relevance Score**: Usefulness for training
-
-## Usage Examples
-
-### For AI Training
-
-```python
-import intenus_dataset
-
-# Load training data
-data = intenus_dataset.load(
-    start_date="2024-01-01",
-    end_date="2024-12-31",
-    intent_types=["swap"],
-    anonymized=True
-)
-
-# Train ranking model
-model = train_ranking_model(
-    intents=data.intents,
-    solutions=data.solutions,
-    outcomes=data.outcomes
-)
-```
-
-### For Analytics
-
-```typescript
-import { IntentusAnalytics } from '@intenus/analytics';
-
-// Query solver performance
-const stats = await IntentusAnalytics.query({
-  metric: 'solver_accuracy',
-  solver: '0x...',
-  timeframe: 'last_30_days'
-});
-
-console.log(`Accuracy: ${stats.avg_accuracy}%`);
-```
-
-## Data Retention
-
-### Retention Policy
-
-| Data Type | Retention | Purpose |
-|-----------|-----------|---------|
-| Recent executions | 90 days | Hot storage, quick access |
-| Historical data | 2 years | Training, analytics |
-| Audit trails | 7 years | Compliance, disputes |
-| Aggregated stats | Permanent | Protocol insights |
+* Solutions that underperformed
+* Failed executions
+* User complaints or reverts
 
 ### Archival Process
 
 Older data progressively compressed:
+
 1. **Day 1-90**: Full JSON on Walrus
 2. **Day 91-730**: Compressed + indexed
 3. **Day 731+**: Aggregated summaries only
 
 ## Learn More
 
-- [IGS Core](igs-core.md) - Data type definitions
-- [AI-Powered Ranking](../ranking-engine.md) - How data is used
-- [Privacy Protection](../../technical-documentation/privacy-protection.md) - Security details
+* [IGS Core](igs-core.md) - Data type definitions
+* [AI-Powered Ranking](../ranking-engine.md) - How data is used
+* [Privacy Protection](../../technical-documentation/privacy-protection.md) - Security details
+
+## References
+
+{% file src="../../.gitbook/assets/dataset-schema.json" %}
