@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome to Intenus Protocol](README.md)
+* [Welcome](README.md)
 
 ## Getting Started
 
