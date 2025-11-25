@@ -12,17 +12,7 @@ description: Intent Schema
 
 ### Schema Overview
 
-| Property       | Type             | Required                        | Description                                                                                                |
-| -------------- | ---------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `igs_version`  | `string`         | <i class="fa-check">:check:</i> | IGS version (constant: "1.0.0")                                                                            |
-| `object`       | `IGSObject`      | <i class="fa-check">:check:</i> | On-chain Sui object reference                                                                              |
-| `user_address` | `string`         | <i class="fa-check">:check:</i> | User address (pattern: `^0x[a-fA-F0-9]{1,64}$`)                                                            |
-| `intent_type`  | `string`         | <i class="fa-check">:check:</i> | Intent type (see [Intent Types](https://claude.ai/chat/b84db470-b129-4639-8f28-b94abc2c2ac3#intent-types)) |
-| `operation`    | `IGSOperation`   | <i class="fa-check">:check:</i> | Operation specification                                                                                    |
-| `description`  | `string`         |                                 | Human-readable description (1-500 chars)                                                                   |
-| `constraints`  | `IGSConstraints` |                                 | Execution constraints                                                                                      |
-| `preferences`  | `IGSPreferences` |                                 | User preferences                                                                                           |
-| `metadata`     | `IGSMetadata`    |                                 | Additional metadata                                                                                        |
+<table><thead><tr><th>Property</th><th>Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>igs_version</code></td><td><code>string</code></td><td>true</td><td>IGS version (constant: "1.0.0")</td></tr><tr><td><code>object</code></td><td><code>IGSObject</code></td><td>true</td><td>On-chain Sui object reference</td></tr><tr><td><code>user_address</code></td><td><code>string</code></td><td>true</td><td>User address (pattern: <code>^0x[a-fA-F0-9]{1,64}$</code>)</td></tr><tr><td><code>intent_type</code></td><td><code>string</code></td><td>true</td><td>Intent type (see <a href="https://claude.ai/chat/b84db470-b129-4639-8f28-b94abc2c2ac3#intent-types">Intent Types</a>)</td></tr><tr><td><code>operation</code></td><td><code>IGSOperation</code></td><td>true</td><td>Operation specification</td></tr><tr><td><code>description</code></td><td><code>string</code></td><td>true</td><td>Human-readable description (1-500 chars)</td></tr><tr><td><code>constraints</code></td><td><code>IGSConstraints</code></td><td>false</td><td>Execution constraints</td></tr><tr><td><code>preferences</code></td><td><code>IGSPreferences</code></td><td>false</td><td>User preferences</td></tr><tr><td><code>metadata</code></td><td><code>IGSMetadata</code></td><td>false</td><td>Additional metadata</td></tr></tbody></table>
 
 ### Intent Types
 
@@ -35,44 +25,23 @@ description: Intent Schema
 
 ### IGSObject Structure
 
-| Property       | Type     | Required                        | Description                       |
-| -------------- | -------- | ------------------------------- | --------------------------------- |
-| `user_address` | `string` | <i class="fa-check">:check:</i> | Sui object owner address          |
-| `created_ts`   | `number` | <i class="fa-check">:check:</i> | Creation timestamp (milliseconds) |
-| `policy`       | `object` | <i class="fa-check">:check:</i> | Access control policy             |
+<table><thead><tr><th>Property</th><th>Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>user_address</code></td><td><code>string</code></td><td>true</td><td>Sui object owner address</td></tr><tr><td><code>created_ts</code></td><td><code>number</code></td><td>true</td><td>Creation timestamp (milliseconds)</td></tr><tr><td><code>policy</code></td><td><code>object</code></td><td>true</td><td>Access control policy</td></tr></tbody></table>
 
 #### Policy Object
 
-| Property               | Type     | Required                        | Description                      |
-| ---------------------- | -------- | ------------------------------- | -------------------------------- |
-| `solver_access_window` | `object` | <i class="fa-check">:check:</i> | Time window for solver access    |
-| `auto_revoke_time`     | `number` | <i class="fa-check">:check:</i> | Automatic access revocation time |
-| `access_condition`     | `object` | <i class="fa-check">:check:</i> | Solver access conditions         |
+<table><thead><tr><th>Property</th><th>Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>solver_access_window</code></td><td><code>object</code></td><td>true</td><td>Time window for solver access</td></tr><tr><td><code>auto_revoke_time</code></td><td><code>number</code></td><td>true</td><td>Automatic access revocation time</td></tr><tr><td><code>access_condition</code></td><td><code>object</code></td><td>true</td><td>Solver access conditions</td></tr></tbody></table>
 
 **Solver Access Window**
 
-| Property   | Type     | Required                        | Description                      |
-| ---------- | -------- | ------------------------------- | -------------------------------- |
-| `start_ms` | `number` | <i class="fa-check">:check:</i> | Window start time (milliseconds) |
-| `end_ms`   | `number` | <i class="fa-check">:check:</i> | Window end time (milliseconds)   |
+<table><thead><tr><th>Property</th><th>Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>start_ms</code></td><td><code>number</code></td><td>true</td><td>Window start time (milliseconds)</td></tr><tr><td><code>end_ms</code></td><td><code>number</code></td><td>true</td><td>Window end time (milliseconds)</td></tr></tbody></table>
 
 **Access Conditions**
 
-| Property                       | Type      | Required                        | Description                |
-| ------------------------------ | --------- | ------------------------------- | -------------------------- |
-| `requires_solver_registration` | `boolean` | <i class="fa-check">:check:</i> | Must be registered solver  |
-| `min_solver_stake`             | `string`  | <i class="fa-check">:check:</i> | Minimum stake amount       |
-| `requires_tee_attestation`     | `boolean` | <i class="fa-check">:check:</i> | Requires TEE attestation   |
-| `min_solver_reputation_score`  | `number`  | <i class="fa-check">:check:</i> | Minimum reputation (0-100) |
+<table><thead><tr><th>Property</th><th>Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>requires_solver_registration</code></td><td><code>boolean</code></td><td>true</td><td>Must be registered solver</td></tr><tr><td><code>min_solver_stake</code></td><td><code>string</code></td><td>true</td><td>Minimum stake amount</td></tr><tr><td><code>requires_tee_attestation</code></td><td><code>boolean</code></td><td>true</td><td>Requires TEE attestation</td></tr><tr><td><code>min_solver_reputation_score</code></td><td><code>number</code></td><td>true</td><td>Minimum reputation (0-100)</td></tr></tbody></table>
 
 ### IGSOperation Structure
 
-| Property           | Type                 | Required                        | Description                |
-| ------------------ | -------------------- | ------------------------------- | -------------------------- |
-| `mode`             | `string`             | <i class="fa-check">:check:</i> | Operation mode             |
-| `inputs`           | `array`              | <i class="fa-check">:check:</i> | Input assets (1-10 items)  |
-| `outputs`          | `array`              | <i class="fa-check">:check:</i> | Output assets (1-10 items) |
-| `expected_outcome` | `IGSExpectedOutcome` |                                 | Expected execution outcome |
+<table><thead><tr><th>Property</th><th>Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>mode</code></td><td><code>string</code></td><td>true</td><td>Operation mode</td></tr><tr><td><code>inputs</code></td><td><code>array</code></td><td>true</td><td>Input assets (1-10 items)</td></tr><tr><td><code>outputs</code></td><td><code>array</code></td><td>true</td><td>Output assets (1-10 items)</td></tr><tr><td><code>expected_outcome</code></td><td><code>IGSExpectedOutcome</code></td><td>false</td><td>Expected execution outcome</td></tr></tbody></table>
 
 #### Operation Modes
 
@@ -84,11 +53,7 @@ description: Intent Schema
 
 ### IGSAssetFlow Structure
 
-| Property     | Type        | Required                        | Description                  |
-| ------------ | ----------- | ------------------------------- | ---------------------------- |
-| `asset_id`   | `string`    | <i class="fa-check">:check:</i> | Asset identifier             |
-| `asset_info` | `object`    |                                 | Additional asset information |
-| `amount`     | `IGSAmount` | <i class="fa-check">:check:</i> | Amount specification         |
+<table><thead><tr><th>Property</th><th>Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>asset_id</code></td><td><code>string</code></td><td>true</td><td>Asset identifier</td></tr><tr><td><code>asset_info</code></td><td><code>object</code></td><td>false</td><td>Additional asset information</td></tr><tr><td><code>amount</code></td><td><code>IGSAmount</code></td><td>true</td><td>Amount specification</td></tr></tbody></table>
 
 #### Asset ID Format
 
@@ -109,39 +74,23 @@ description: Intent Schema
 
 #### Exact Amount
 
-| Property | Type     | Required                        | Description                   |
-| -------- | -------- | ------------------------------- | ----------------------------- |
-| `type`   | `string` | <i class="fa-check">:check:</i> | "exact"                       |
-| `value`  | `string` | <i class="fa-check">:check:</i> | Exact amount (integer string) |
+<table><thead><tr><th>Property</th><th>Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>type</code></td><td><code>string</code></td><td>true</td><td>"exact"</td></tr><tr><td><code>value</code></td><td><code>string</code></td><td>true</td><td>Exact amount (integer string)</td></tr></tbody></table>
 
 #### Range Amount
 
-| Property | Type     | Required                        | Description    |
-| -------- | -------- | ------------------------------- | -------------- |
-| `type`   | `string` | <i class="fa-check">:check:</i> | "range"        |
-| `min`    | `string` | <i class="fa-check">:check:</i> | Minimum amount |
-| `max`    | `string` | <i class="fa-check">:check:</i> | Maximum amount |
+<table><thead><tr><th>Property</th><th>Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>type</code></td><td><code>string</code></td><td>true</td><td>"range"</td></tr><tr><td><code>min</code></td><td><code>string</code></td><td>true</td><td>Minimum amount</td></tr><tr><td><code>max</code></td><td><code>string</code></td><td>true</td><td>Maximum amount</td></tr></tbody></table>
 
 #### All Amount
 
-| Property | Type     | Required                        | Description                |
-| -------- | -------- | ------------------------------- | -------------------------- |
-| `type`   | `string` | <i class="fa-check">:check:</i> | "all" (use entire balance) |
+<table><thead><tr><th>Property</th><th>Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>type</code></td><td><code>string</code></td><td>true</td><td>"all" (use entire balance)</td></tr></tbody></table>
 
 ### IGSExpectedOutcome Structure
 
-| Property           | Type     | Required                        | Description             |
-| ------------------ | -------- | ------------------------------- | ----------------------- |
-| `expected_outputs` | `array`  | <i class="fa-check">:check:</i> | Expected output amounts |
-| `expected_costs`   | `object` |                                 | Cost estimates          |
-| `market_price`     | `object` |                                 | Current market price    |
+<table><thead><tr><th>Property</th><th>Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>expected_outputs</code></td><td><code>array</code></td><td>true</td><td>Expected output amounts</td></tr><tr><td><code>expected_costs</code></td><td><code>object</code></td><td>false</td><td>Cost estimates</td></tr><tr><td><code>market_price</code></td><td><code>object</code></td><td>false</td><td>Current market price</td></tr></tbody></table>
 
 #### Expected Outputs Item
 
-| Property   | Type     | Required                        | Description      |
-| ---------- | -------- | ------------------------------- | ---------------- |
-| `asset_id` | `string` | <i class="fa-check">:check:</i> | Asset identifier |
-| `amount`   | `string` | <i class="fa-check">:check:</i> | Expected amount  |
+<table><thead><tr><th>Property</th><th>Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>asset_id</code></td><td><code>string</code></td><td>true</td><td>Asset identifier</td></tr><tr><td><code>amount</code></td><td><code>string</code></td><td>true</td><td>Expected amount</td></tr></tbody></table>
 
 #### Expected Costs Object
 
@@ -172,10 +121,7 @@ description: Intent Schema
 
 #### Max Inputs/Min Outputs Item
 
-| Property   | Type     | Required                        | Description      |
-| ---------- | -------- | ------------------------------- | ---------------- |
-| `asset_id` | `string` | <i class="fa-check">:check:</i> | Asset identifier |
-| `amount`   | `string` | <i class="fa-check">:check:</i> | Amount limit     |
+<table><thead><tr><th>Property</th><th>Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>asset_id</code></td><td><code>string</code></td><td>true</td><td>Asset identifier</td></tr><tr><td><code>amount</code></td><td><code>string</code></td><td>true</td><td>Amount limit</td></tr></tbody></table>
 
 #### Routing Object
 
@@ -187,11 +133,7 @@ description: Intent Schema
 
 #### Limit Price Object
 
-| Property      | Type     | Required                        | Description              |
-| ------------- | -------- | ------------------------------- | ------------------------ |
-| `price`       | `string` | <i class="fa-check">:check:</i> | Limit price value        |
-| `comparison`  | `string` | <i class="fa-check">:check:</i> | "gte" or "lte"           |
-| `price_asset` | `string` | <i class="fa-check">:check:</i> | Price denomination asset |
+<table><thead><tr><th>Property</th><th>Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>price</code></td><td><code>string</code></td><td>true</td><td>Limit price value</td></tr><tr><td><code>comparison</code></td><td><code>string</code></td><td>true</td><td>"gte" or "lte"</td></tr><tr><td><code>price_asset</code></td><td><code>string</code></td><td>true</td><td>Price denomination asset</td></tr></tbody></table>
 
 ### IGSPreferences Structure
 
