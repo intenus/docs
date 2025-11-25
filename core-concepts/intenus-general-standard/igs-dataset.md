@@ -230,7 +230,7 @@ All dataset entries stored on Walrus:
 
 * [IGS Core](igs-core.md) - Data type definitions
 * [AI-Powered Ranking](../ranking-engine.md) - How data is used
-* [Privacy Protection](../../technical-documentation/privacy-protection.md) - Security details
+* [Privacy Protection](../../technical/privacy-protection.md) - Security details
 
 ## References
 

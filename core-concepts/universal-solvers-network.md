@@ -231,7 +231,7 @@ To operate as a solver, you need:
 
 Ready to join the network?
 
-1. **Review Technical Specs**: [Integration Guide](../technical-documentation/integration-guide.md)
+1. **Review Technical Specs**: [Integration Guide](../developers/integration-guide.md)
 2. **Understand IGS**: [Intenus General Standard](intenus-general-standard/)
 3. **Check Requirements**: Minimum stake, infrastructure needs
 4. **Join Community**: Connect with other solvers
@@ -241,4 +241,4 @@ Ready to join the network?
 
 * [Solution Specifications](solutions.md)
 * [AI-Powered Ranking](ranking-engine.md)
-* [Technical Integration](../technical-documentation/solver-network.md)
+* [Technical Integration](../technical/solver-network.md)

@@ -28,24 +28,26 @@
 * [Universal Solvers Network](core-concepts/universal-solvers-network.md)
 * [Ranking Strategies](core-concepts/ranking-strategies.md)
 
-## Technical Documentation
+## Technical
 
-* [Solver Network](technical-documentation/solver-network.md)
-* [AI-Powered Ranking](technical-documentation/ai-powered-ranking.md)
-* [System Architecture](technical-documentation/system-architecture.md)
-* [Flow Diagram](technical-documentation/flow-diagram.md)
-* [Smart Contracts](technical-documentation/smart-contracts.md)
-* [Integration Guide](technical-documentation/integration-guide.md)
-* [Privacy Protection](technical-documentation/privacy-protection.md)
+* [Solver Network](technical/solver-network.md)
+* [AI-Powered Ranking](technical/ai-powered-ranking.md)
+* [System Architecture](technical/system-architecture.md)
+* [Flow Diagram](technical/flow-diagram.md)
+* [Privacy Protection](technical/privacy-protection.md)
+
+## Developers
+
+* [Smart Contracts](developers/smart-contracts.md)
+* [Integration](developers/integration-guide.md)
 
 ## Resources
 
 * [FAQ](resources/faq.md)
 * [Glossary](resources/glossary.md)
-* [Developer Resources](resources/developer-resources.md)
+* [Addresses](resources/developer-resources.md)
 * [Whitepaper](resources/whitepaper.md)
 
 ***
 
-* [Get Involved](get-involved.md)
 * [Support](support.md)

@@ -156,6 +156,6 @@ Before execution, solutions undergo rigorous checks:
 
 ## Learn More
 
-* [How Solvers Compete](../technical-documentation/solver-network.md)
+* [How Solvers Compete](../technical/solver-network.md)
 * [AI-Powered Ranking](ranking-engine.md)
 * [Intent Specification](intents.md)

@@ -1,3 +1,7 @@
+---
+icon: igloo
+---
+
 # System Architecture
 
 ## Overview

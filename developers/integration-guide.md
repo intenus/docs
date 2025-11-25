@@ -1,4 +1,8 @@
-# Integration Guide
+---
+icon: puzzle-piece-simple
+---
+
+# Integration
 
 ## For Clients
 

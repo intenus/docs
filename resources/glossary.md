@@ -1,3 +1,7 @@
+---
+icon: font-case
+---
+
 # Glossary
 
 | Terms                                             | Description                                                                                                                            |

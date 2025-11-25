@@ -1,4 +1,9 @@
-# Developer Resources
+---
+description: Developer
+icon: link
+---
+
+# Addresses
 
 ## Official Links
 
@@ -11,6 +16,7 @@
 | Key                                       | Value                                                                |
 | ----------------------------------------- | -------------------------------------------------------------------- |
 | **AI Enclave Host**                       | [http://13.211.142.216:8000/docs](http://13.211.142.216:8000/docs)   |
+| **Ranking Engine Host**                   | [http://13.211.142.216:3000](http://13.211.142.216:8000/docs)        |
 | **INTENUS\_PACKAGE\_ID**                  | `0x993c7635b44582e9c47c589c759239d3e1ce787811af5bfa0056aa253caa394a` |
 | **INTENUS\_SOLVER\_REGISTRY\_ID**         | `0xf71c16414b66054dfe9ebca5f22f8076a8294715d5a3e4ae4b2b4e0cd5d7e64a` |
 | **INTENUS\_SOLVER\_REGISTRY\_ADMIN\_CAP** | `0xaf69f4d0fa49c43bfa9bfe382467eacd33ead8e2bb36aeb6fcb8f1df36d60909` |

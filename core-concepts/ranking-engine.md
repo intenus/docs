@@ -379,4 +379,4 @@ Planned improvements:
 
 * [Universal Solvers Network](universal-solvers-network.md)
 * [Solution Specifications](solutions.md)
-* [Technical Details](../technical-documentation/ai-powered-ranking.md)
+* [Technical Details](../technical/ai-powered-ranking.md)
