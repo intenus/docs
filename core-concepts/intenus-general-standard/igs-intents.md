@@ -8,6 +8,8 @@ description: Intent Schema
 
 **IGS Intents** standardize how user trading goals are expressed, ensuring consistent interpretation across solvers, AI models, and smart contracts.
 
+[https://json-schema.org/draft-07/schema#](https://json-schema.org/draft-07/schema)
+
 ### Schema Overview
 
 | Property       | Type             | Required                        | Description                                                                                                |
