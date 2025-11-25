@@ -202,18 +202,6 @@ All dataset entries stored on Walrus:
 * **Integrity**: Cryptographic verification
 * **Permanence**: Long-term archival
 
-### Storage Format
-
-```
-walrus://{blob_id}
-
-Blob contains:
-- Compressed JSON
-- Metadata header
-- Cryptographic hash
-- Version identifier
-```
-
 ## Continuous Learning
 
 ### Model Retraining Cycle
@@ -237,14 +225,6 @@ Blob contains:
 * Solutions that underperformed
 * Failed executions
 * User complaints or reverts
-
-### Archival Process
-
-Older data progressively compressed:
-
-1. **Day 1-90**: Full JSON on Walrus
-2. **Day 91-730**: Compressed + indexed
-3. **Day 731+**: Aggregated summaries only
 
 ## Learn More
 
