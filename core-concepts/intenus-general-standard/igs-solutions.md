@@ -4,94 +4,38 @@
 
 **IGS Solutions** define the standardized format for solver execution proposals, enabling deterministic validation and ranking.
 
-## Complete Solution Structure
+[https://json-schema.org/draft-07/schema#](https://json-schema.org/draft-07/schema)
 
-```json
-{
-  "igs_version": "1.0.0",
-  "solution_id": "sol_abc123",
-  "intent_id": "int_xyz789",
-  "solver_address": "0x...",
-  "timestamp": 1699123456000,
+### Schema Overview
 
-  "execution_plan": {
-    "steps": [
-      {
-        "protocol": "Cetus",
-        "protocol_address": "0x...",
-        "action": "swap",
-        "params": {
-          "pool_id": "0x...",
-          "amount_in": "600000000",
-          "min_amount_out": "1480000"
-        }
-      },
-      {
-        "protocol": "Turbos",
-        "protocol_address": "0x...",
-        "action": "swap",
-        "params": {
-          "pool_id": "0x...",
-          "amount_in": "400000000",
-          "min_amount_out": "985000"
-        }
-      }
-    ],
-    "total_gas_estimate": "500000"
-  },
+The IGS Solution schema is intentionally minimal, containing only essential information for solver transaction submission to Intenus routers.
 
-  "expected_outcomes": {
-    "output_amount": "2495000",
-    "execution_time_ms": 5000,
-    "slippage_bps": 30,
-    "success_probability": 0.98
-  },
+<table><thead><tr><th>Property</th><th width="236">Type</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>solver_address</code></td><td><code>string</code></td><td>true</td><td>Sui address of the solver submitting this transaction</td></tr><tr><td><code>tx_bytes</code></td><td><code>string</code></td><td>true</td><td>Serialized transaction bytes (base64 or hex encoded)</td></tr></tbody></table>
 
-  "solver_commitment": {
-    "signature": "0x...",
-    "stake_locked": "10000000000",
-    "guarantee_output": "2465000",
-    "penalty_amount": "500000000"
-  }
-}
-```
+### Schema Evolution
 
-## Key Components
+#### Version Compatibility
 
-### Execution Plan
+| Version | Changes             | Backward Compatible |
+| ------- | ------------------- | ------------------- |
+| `1.0.0` | Initial release     | N/A                 |
+| Future  | Potential additions | Yes (additive only) |
 
-Step-by-step instructions for on-chain execution:
-- **Protocol**: Which DeFi protocol to use
-- **Action**: Specific operation (swap, lend, etc.)
-- **Params**: Operation-specific parameters
+#### Extension Strategy
 
-### Expected Outcomes
+While the current schema is minimal by design, future extensions will:
 
-Quantifiable performance metrics:
-- **Output Amount**: Expected user receipt
-- **Execution Time**: Completion estimate
-- **Slippage**: Price impact prediction
-- **Success Probability**: Likelihood of completion
-
-### Solver Commitment
-
-Economic guarantees binding the solver:
-- **Signature**: Cryptographic proof
-- **Stake Locked**: Collateral at risk
-- **Guarantee Output**: Minimum promised amount
-- **Penalty Amount**: Slashing if underperforms
-
-## Validation Requirements
-
-All solutions must:
-- ✅ Reference a valid intent_id
-- ✅ Come from registered solver
-- ✅ Include valid execution plan
-- ✅ Provide realistic outcome estimates
-- ✅ Include cryptographic signature
+* Add optional fields only
+* Maintain backward compatibility
+* Use semantic versioning
+* Provide migration guides
 
 ## Learn More
 
-- [IGS Core](igs-core.md) - Primitive types
-- [Solutions Concept](../solutions.md) - High-level overview
-- [Pre-ranking Engine](../pre-ranking-engine.md) - Validation process
+* [IGS Core](igs-core.md) - Primitive types
+* [Solutions Concept](../solutions.md) - High-level overview
+* [Pre-ranking Engine](../pre-ranking-engine.md) - Validation process
+
+## References
+
+{% file src="../../.gitbook/assets/igs-solution-schema.json" %}

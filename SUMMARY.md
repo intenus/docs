@@ -1,10 +1,10 @@
 # Table of contents
 
-* [Welcome to Intenus Protocol](README.md)
+* [Welcome](README.md)
 
 ## Getting Started
 
-* [What is Intenus?](getting-started/what-is-intenus.md)
+* [Overview](getting-started/what-is-intenus.md)
 * [Quick Start](getting-started/quick-start.md)
 
 ## For Traders
@@ -21,30 +21,33 @@
 * [Intenus General Standard](core-concepts/intenus-general-standard/README.md)
   * [IGS Intents](core-concepts/intenus-general-standard/igs-intents.md)
   * [IGS Solutions](core-concepts/intenus-general-standard/igs-solutions.md)
-  * [IGS Core](core-concepts/intenus-general-standard/igs-core.md)
   * [IGS Dataset](core-concepts/intenus-general-standard/igs-dataset.md)
-* [Pre-ranking Engine](core-concepts/pre-ranking-engine.md)
+  * [IGS Core](core-concepts/intenus-general-standard/igs-core.md)
+* [Prerank Engine](core-concepts/pre-ranking-engine.md)
 * [Ranking Engine](core-concepts/ranking-engine.md)
 * [Universal Solvers Network](core-concepts/universal-solvers-network.md)
+* [Ranking Strategies](core-concepts/ranking-strategies.md)
 
-## Technical Documentation
+## Technical
 
-* [Solver Network](technical-documentation/solver-network.md)
-* [AI-Powered Ranking](technical-documentation/ai-powered-ranking.md)
-* [System Architecture](technical-documentation/system-architecture.md)
-* [Flow Diagram](technical-documentation/flow-diagram.md)
-* [Smart Contracts](technical-documentation/smart-contracts.md)
-* [Integration Guide](technical-documentation/integration-guide.md)
-* [Privacy Protection](technical-documentation/privacy-protection.md)
+* [Solver Network](technical/solver-network.md)
+* [AI-Powered Ranking](technical/ai-powered-ranking.md)
+* [System Architecture](technical/system-architecture.md)
+* [Flow Diagram](technical/flow-diagram.md)
+* [Privacy Protection](technical/privacy-protection.md)
+
+## Developers
+
+* [Smart Contracts](developers/smart-contracts.md)
+* [Integration](developers/integration-guide.md)
 
 ## Resources
 
 * [FAQ](resources/faq.md)
 * [Glossary](resources/glossary.md)
-* [Developer Resources](resources/developer-resources.md)
+* [Addresses](resources/developer-resources.md)
 * [Whitepaper](resources/whitepaper.md)
 
 ***
 
-* [Get Involved](get-involved.md)
 * [Support](support.md)

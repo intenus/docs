@@ -1,3 +1,7 @@
+---
+icon: file-lock
+---
+
 # Smart Contracts
 
 Intenus deploys a modular contract system on Sui, with each module handling specific responsibilities:

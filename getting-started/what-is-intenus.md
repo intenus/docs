@@ -3,7 +3,9 @@ description: Your first look at AI-powered DeFi made simple.
 icon: sunglasses
 ---
 
-# What is Intenus?
+# Overview
+
+## What is Intenus?
 
 Intenus Protocol is an **intent-based trading platform** that lets you express what you want to achieve in DeFi without worrying about the complex technical details.
 
@@ -55,3 +57,4 @@ Unlike specialized platforms, Intenus supports:
 * Lending and borrowing
 * Cross-chain bridging
 * Complex multi-step strategies
+
