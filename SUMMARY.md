@@ -40,6 +40,9 @@
 
 * [Smart Contracts](developers/smart-contracts.md)
 * [Integration](developers/integration-guide.md)
+* [API References](developers/api-references/README.md)
+  * [Ranking Engine API](developers/api-references/ranking-engine-api.md)
+  * [Intent Classification API](developers/api-references/intent-classification-api.md)
 
 ## Resources
 
