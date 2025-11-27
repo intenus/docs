@@ -1,4 +1,9 @@
-# Support
+---
+description: Contact us
+icon: envelope
+---
+
+# Contacts
 
 ## Getting Help
 

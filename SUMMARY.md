@@ -46,11 +46,8 @@
 
 ## Resources
 
+* [Whitepaper](resources/whitepaper.md)
+* [Addresses](resources/developer-resources.md)
 * [FAQ](resources/faq.md)
 * [Glossary](resources/glossary.md)
-* [Addresses](resources/developer-resources.md)
-* [Whitepaper](resources/whitepaper.md)
-
-***
-
-* [Support](support.md)
+* [Contacts](resources/support.md)
